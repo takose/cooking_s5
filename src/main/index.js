@@ -4,6 +4,7 @@ import createMainWindow from "./createMainWindow";
 let mainWindow = null;
 
 app.on("ready", async () => {
+
   mainWindow = createMainWindow();
   if (process.env.NODE_ENV !== 'development') {
     const install = () => {

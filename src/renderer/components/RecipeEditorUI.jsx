@@ -1,6 +1,8 @@
 import React from "react";
 
 import Editor from "./Editor";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
 
 export default class RecipeEditorUI extends React.Component {
   constructor(props) {
@@ -10,7 +12,9 @@ export default class RecipeEditorUI extends React.Component {
   render() {
     return (
       <div>
-        <Editor />
+        <MuiThemeProvider muiTheme={getMuiTheme()}>
+          <Editor />
+        </MuiThemeProvider>
       </div>
     );
   }

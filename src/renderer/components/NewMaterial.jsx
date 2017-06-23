@@ -1,4 +1,5 @@
 import React from "react";
+import TextField from 'material-ui/TextField';
 
 export default class NewMaterial extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class NewMaterial extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        <input type="text" onChange={this.handleOnChange} value={this.state.body} />
+        <TextField hintText="Add Material.." onChange={this.handleOnChange} value={this.state.body} />
         <button>Add</button>
       </form>
     );

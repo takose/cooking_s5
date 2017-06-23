@@ -1,4 +1,5 @@
 import React from "react";
+import TextField from 'material-ui/TextField';
 
 export default class NewStep extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export default class NewStep extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleOnSubmit}>
-          <input type="text" onChange={this.handleOnChange} value={this.state.body} />
+          <TextField hintText="Add Step.." onChange={this.handleOnChange} value={this.state.body} />
           <button>Add</button>
         </form>
       </div>

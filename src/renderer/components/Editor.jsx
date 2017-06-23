@@ -1,6 +1,5 @@
 import React from "react";
 
-import NewMaterial from "./NewMaterial";
 import Ingredients from "./Ingredients";
 import Step from "./Step";
 import NewStep from "./NewStep";

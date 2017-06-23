@@ -14,9 +14,9 @@ export default class NewStep extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    const { addMaterial } = this.props;
-    if (!addMaterial || !this.state.body.length) return;
-    addMaterial(this.state.body);
+    const { addStep } = this.props;
+    if (!addStep || !this.state.body.length) return;
+    addStep(this.state.body);
     this.setState({ body: '' });
   }
 

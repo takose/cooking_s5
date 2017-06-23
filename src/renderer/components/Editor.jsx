@@ -52,11 +52,11 @@ export default class Editor extends React.Component {
     const { data } = this.state
     if (data.steps.length == this.state.currentStepIndex) {
       data.steps.push([{name: body, width: this.state.currentStepRange}])
-      this.setState(data)
     } else {
       data.steps[data.steps.length-1].push({name: body, width: this.state.currentStepRange})
-      this.setState(data)
     }
+    this.setState({currentStepRange: 1})
+    this.setState(data)
   }
 
   handleOnPlusRange () {
@@ -83,10 +83,10 @@ export default class Editor extends React.Component {
     const newStep = (this.state.currentStepIndex == steps_length) ? <tr><NewStepRange handleNextStep={this.handleNextStep} handleOnPlusRange={this.handleOnPlusRange} currentStepRange={this.state.currentStepRange} /></tr> : false
     return (
       <div>
-        <NewMaterial addMaterial={this.handleMaterialAddition} />
+        <h1>Create Recipe</h1>
         <TableStyle>
           <tbody>
-            <Ingredients data={this.state.data.materials} />
+            <Ingredients handleMaterialAddition={this.handleMaterialAddition} data={this.state.data.materials} />
             {steps}
             {newStep}
           </tbody>

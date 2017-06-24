@@ -4,7 +4,7 @@ const TableStyle = styled.table`
   border: 1px solid #ccc;
   border-collapse: collapse;
   border-radius: 6px;
-  width: 100%;
+  max-width: 100%;
 `
 
 export default TableStyle

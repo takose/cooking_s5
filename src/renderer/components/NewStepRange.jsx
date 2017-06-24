@@ -27,16 +27,10 @@ export default class NewStepRange extends React.Component {
     };
 
     return (
-      <td colSpan={this.props.currentStepRange}>
-        <RaisedButton onClick={this.handleOnPlusRange}
-          style={styles.button}
-          icon={<FontIcon className="material-icons">add</FontIcon>}
-        />
-        <RaisedButton onClick={this.handleNextStep}
-          style={styles.button}
-          icon={<FontIcon className="material-icons">keyboard_return</FontIcon>}
-        />
-      </td>
+      <RaisedButton onClick={this.handleOnPlusRange}
+        style={styles.button}
+        icon={<FontIcon className="material-icons">add</FontIcon>}
+      />
     )
   }
 }

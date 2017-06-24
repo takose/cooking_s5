@@ -1,5 +1,7 @@
 import React from "react";
 import NewStepButton from "./NewStepButton"
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
 
 
 export default class NewStepRange extends React.Component {
@@ -18,12 +20,22 @@ export default class NewStepRange extends React.Component {
   }
 
   render () {
+    const styles = {
+      button: {
+        margin: 12,
+      },
+    };
+
     return (
       <td colSpan={this.props.currentStepRange}>
-        <NewStepButton onClick={this.handleOnPlusRange}>
-          +
-        </NewStepButton>
-        <NewStepButton onClick={this.handleNextStep}>↓</NewStepButton>
+        <RaisedButton onClick={this.handleOnPlusRange}
+          style={styles.button}
+          icon={<FontIcon className="material-icons">add</FontIcon>}
+        />
+        <RaisedButton onClick={this.handleNextStep}
+          style={styles.button}
+          icon={<FontIcon className="material-icons">keyboard_return</FontIcon>}
+        />
       </td>
     )
   }

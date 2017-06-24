@@ -1,5 +1,7 @@
 import React from "react";
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
 
 export default class NewMaterial extends React.Component {
   constructor(props) {
@@ -22,10 +24,19 @@ export default class NewMaterial extends React.Component {
   }
 
   render() {
+    const styles = {
+      button: {
+        margin: 12,
+      },
+    };
+
     return (
       <form onSubmit={this.handleOnSubmit}>
         <TextField hintText="Add Material.." onChange={this.handleOnChange} value={this.state.body} />
-        <button>Add</button>
+        <RaisedButton
+          style={styles.button}
+          icon={<FontIcon className="material-icons">add</FontIcon>}
+        />
       </form>
     );
   }

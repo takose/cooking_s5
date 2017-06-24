@@ -1,5 +1,6 @@
 import React from "react";
 import NewStepRange from "./NewStepRange";
+import StepForward from "./StepForward"
 
 import CellStyle from "./CellStyle"
 export default class Step extends React.Component {
@@ -9,11 +10,15 @@ export default class Step extends React.Component {
 
   render () {
     const cells = this.props.data.map((d) => <CellStyle colSpan={d.width}>{d.name}</CellStyle>)
-    const newStep = this.props.isLast ? <NewStepRange {...this.props} /> : false
+    const stepForward = this.props.isLast ? <StepForward handleNextStep={this.props.handleNextStep} /> : false
+    const addRange = (stepForward && this.props.enableAddRange) ? <NewStepRange handleOnPlusRange={this.props.handleOnPlusRange} /> : false
     return (
       <tr>
         {cells}
-        {newStep}
+        <td>
+          {addRange}
+          {stepForward}
+        </td>
       </tr>
     )
   }

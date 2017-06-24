@@ -18,7 +18,6 @@ export default class NewStep extends React.Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const { addStep } = this.props;
-    console.log(addStep)
     if (!addStep || !this.state.body.length) return;
     addStep(this.state.body);
     this.setState({ body: '' });

@@ -9,13 +9,18 @@ export default class Step extends React.Component {
   }
 
   render () {
+    const styles = {
+      td: {
+        // backgroundColor: "#fdd",
+      },
+    };
     const cells = this.props.data.map((d) => <CellStyle colSpan={d.width}>{d.name}</CellStyle>)
     const stepForward = this.props.isLast ? <StepForward handleNextStep={this.props.handleNextStep} /> : false
     const addRange = (stepForward && this.props.enableAddRange) ? <NewStepRange handleOnPlusRange={this.props.handleOnPlusRange} /> : false
     return (
       <tr>
         {cells}
-        <td>
+        <td style={styles.td} colspan={this.props.currentStepRange}>
           {addRange}
           {stepForward}
         </td>

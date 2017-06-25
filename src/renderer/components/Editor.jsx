@@ -21,6 +21,7 @@ export default class Editor extends React.Component {
     this.state = {
       maxStepRange: 0,
       currentStepRange: 1,
+      sumStepRange: 0,
       currentStepIndex: 0,
       data: {
         materials: [
@@ -57,6 +58,7 @@ export default class Editor extends React.Component {
     } else {
       data.steps[data.steps.length-1].push({name: body, width: this.state.currentStepRange})
     }
+      this.setState({sumStepRange: this.state.sumStepRange + this.state.currentStepRange})
     this.setState({currentStepRange: 1})
     this.setState(data)
   }
@@ -68,7 +70,7 @@ export default class Editor extends React.Component {
 
   handleNextStep () {
     const { currentStepIndex } = this.state
-    this.setState({ currentStepIndex: currentStepIndex + 1, currentStepRange: 1 });
+    this.setState({ currentStepIndex: currentStepIndex + 1, currentStepRange: 1, sumStepRange: 0 });
   }
 
   render() {
@@ -77,13 +79,12 @@ export default class Editor extends React.Component {
       <Step
         data={d}
         isLast={(idx == steps_length-1 && this.state.currentStepIndex == steps_length-1) ?  true : false}
-        enableAddRange={this.state.maxStepRange > this.state.currentStepRange}
+        enableAddRange={this.state.maxStepRange-1 > this.state.sumStepRange}
         currentStepRange={this.state.currentStepRange}
         handleOnPlusRange={this.handleOnPlusRange}
         handleNextStep={this.handleNextStep}
       />
     ))
-    console.log(this.state.currentStepRange < this.state.maxStepRange)
     const newStepRange = (this.state.currentStepIndex == steps_length && this.state.currentStepRange < this.state.maxStepRange) ? <tr><td colSpan={this.state.currentStepRange}><NewStepRange handleOnPlusRange={this.handleOnPlusRange} /></td></tr> : false
     return (
       <div>
